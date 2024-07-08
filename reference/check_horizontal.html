@@ -85,34 +85,34 @@ the input data.frame for the revision dates.</p></dd>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">horizontal_format</span> <span class="op">&lt;-</span> <span class="fu">rjd3revisions</span><span class="fu">:::</span><span class="fu">from_long_to_horizontal</span><span class="op">(</span><span class="va">long_format</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">check_horizontal</span><span class="op">(</span><span class="va">horizontal_format</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            2020-01-01 2020-02-01 2020-03-01 2020-04-01 2020-05-01 2020-06-01</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2020-01-14   6.880374         NA         NA         NA         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2020-03-19   8.820070   7.105736   8.565352         NA         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2020-06-17   9.101896   9.794929  11.856623   16.62432   8.164454   5.413222</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2020-11-07   8.151840   8.452724  12.172631   16.35009  13.074339   6.551906</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2020-11-27   8.016143   8.407959  12.054294   18.86871  12.830413   6.526222</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2021-11-19   8.178413   8.815684  11.960122   17.44292  12.327693   5.429224</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            2020-01-01 2020-02-01 2020-03-01 2020-04-01 2020-05-01  2020-06-01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2020-01-14   5.106850         NA         NA         NA         NA          NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2020-03-19   7.046545   1.166303  -2.164911         NA         NA          NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2020-06-17   7.328371   3.855496   1.126360 -0.6798244 -5.7188859 -1.09578834</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2020-11-07   6.378316   2.513291   1.442368 -0.9540578 -0.8090005  0.04289581</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2020-11-27   6.242618   2.468526   1.324031  1.5645597 -1.0529269  0.01721212</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2021-11-19   6.404888   2.876251   1.229859  0.1387705 -1.5556461 -1.07978615</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            2020-07-01 2020-08-01 2020-09-01 2020-10-01 2020-11-01 2020-12-01</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2020-01-14         NA         NA         NA         NA         NA         NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2020-03-19         NA         NA         NA         NA         NA         NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2020-06-17         NA         NA         NA         NA         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2020-11-07   16.10419   14.15841   8.974445   7.367072   10.94308         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2020-11-27   13.69121   12.56789  10.332938  10.158704   11.58142         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2021-11-19   13.32552   12.26709   9.704628   8.482334   11.24732   2.748721</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2020-11-07  3.5742124  2.1194590  -2.707224  -4.353374  -3.738005         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2020-11-27  1.1612300  0.5289444  -1.348732  -1.561742  -3.099665         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2021-11-19  0.7955465  0.2281470  -1.977041  -3.238112  -3.433769  -1.825284</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            2021-01-01 2021-02-01 2021-03-01 2021-04-01 2021-05-01 2021-06-01</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2020-01-14         NA         NA         NA         NA         NA         NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2020-03-19         NA         NA         NA         NA         NA         NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2020-06-17         NA         NA         NA         NA         NA         NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2020-11-07         NA         NA         NA         NA         NA         NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2020-11-27         NA         NA         NA         NA         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2021-11-19   4.391038   13.93337   15.36428   14.93857   11.26818  0.3160663</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2021-11-19  0.7028529   3.863665  -8.120378  -14.91821   -15.0359  -15.20526</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            2021-07-01 2021-08-01 2021-09-01 2021-10-01 2021-11-01 2021-12-01</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2020-01-14         NA         NA         NA         NA         NA         NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2020-03-19         NA         NA         NA         NA         NA         NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2020-06-17         NA         NA         NA         NA         NA         NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2020-11-07         NA         NA         NA         NA         NA         NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2020-11-27         NA         NA         NA         NA         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2021-11-19  -1.518072  -5.580126  -8.667977   -13.9882  -7.128345         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2021-11-19  -13.48437  -15.92268  -16.32313  -16.21417  -12.58489         NA</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
