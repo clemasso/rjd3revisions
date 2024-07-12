@@ -20,7 +20,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">rjd3revisions</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.3.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.3.2.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -384,11 +384,19 @@ data.frame in R as in the example below.</p>
 <p>Once your input data are in the right format, you create the
 vintages:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">long_view</span> <span class="op">&lt;-</span> <span class="fu">rjd3revisions</span><span class="fu">:::</span><span class="fu">simulate_long</span><span class="op">(</span>periodicity <span class="op">=</span> <span class="fl">4L</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">vintages</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/create_vintages.html">create_vintages</a></span><span class="op">(</span><span class="va">long_view</span>, type <span class="op">=</span> <span class="st">"long"</span>, periodicity <span class="op">=</span> <span class="fl">4L</span><span class="op">)</span></span>
-<span><span class="co"># vintages &lt;- create_vintages_from_xlsx(file = "myinput.xlsx", type = "long", "Sheet1", periodicity = 4, format_date = "%d/%m/%Y")</span></span>
-<span><span class="co"># vintages &lt;- create_vintages_from_csv(file = "myinput.csv", periodicity = 4, sep = "\t", format_date = "%Y-%m-%d")</span></span>
+<code class="sourceCode R"><span><span class="va">vintages</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/create_vintages.html">create_vintages</a></span><span class="op">(</span><span class="va">long_view</span>, type <span class="op">=</span> <span class="st">"long"</span>, periodicity <span class="op">=</span> <span class="fl">4L</span><span class="op">)</span></span>
+<span><span class="co"># vintages &lt;- create_vintages_from_xlsx(</span></span>
+<span><span class="co">#     file = "myinput.xlsx", </span></span>
+<span><span class="co">#     type = "long", </span></span>
+<span><span class="co">#     periodicity = 4, </span></span>
+<span><span class="co">#     "Sheet1"</span></span>
+<span><span class="co"># )</span></span>
+<span><span class="co"># vintages &lt;- create_vintages_from_csv(</span></span>
+<span><span class="co">#     file = "myinput.csv", </span></span>
+<span><span class="co">#     periodicity = 4, </span></span>
+<span><span class="co">#     sep = "\t", </span></span>
+<span><span class="co">#     date_format = "%Y-%m-%d"</span></span>
+<span><span class="co"># )</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">vintages</span><span class="op">)</span> <span class="co"># extract of the vintages according to the different views</span></span>
 <span><span class="co">#&gt; $extract</span></span>
@@ -396,64 +404,53 @@ vintages:</p>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $long_view</span></span>
 <span><span class="co">#&gt;      revdate       time obs_values</span></span>
-<span><span class="co">#&gt; 1 2024-09-05 2022-07-01   92.16703</span></span>
-<span><span class="co">#&gt; 2 2024-09-05 2022-10-01   89.14218</span></span>
-<span><span class="co">#&gt; 3 2024-09-05 2023-01-01   92.19060</span></span>
-<span><span class="co">#&gt; 4 2024-09-05 2023-04-01  104.27212</span></span>
-<span><span class="co">#&gt; 5 2024-09-05 2023-07-01  108.47821</span></span>
-<span><span class="co">#&gt; 6 2024-09-05 2023-10-01  114.17332</span></span>
-<span><span class="co">#&gt; 7 2024-09-05 2024-01-01  115.54046</span></span>
-<span><span class="co">#&gt; 8 2024-09-05 2024-04-01  122.78852</span></span>
+<span><span class="co">#&gt; 1 2023-02-28 2022-01-01        0.7</span></span>
+<span><span class="co">#&gt; 2 2023-02-28 2022-04-01        0.3</span></span>
+<span><span class="co">#&gt; 3 2023-02-28 2022-07-01        0.7</span></span>
+<span><span class="co">#&gt; 4 2023-02-28 2022-10-01        0.3</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $vertical_view</span></span>
-<span><span class="co">#&gt;         2020-12-16 2024-08-17 2024-09-05</span></span>
-<span><span class="co">#&gt; 2022 Q3         NA   90.42408   92.16703</span></span>
-<span><span class="co">#&gt; 2022 Q4         NA   93.67346   89.14218</span></span>
-<span><span class="co">#&gt; 2023 Q1         NA   88.92507   92.19060</span></span>
-<span><span class="co">#&gt; 2023 Q2         NA  104.29141  104.27212</span></span>
-<span><span class="co">#&gt; 2023 Q3         NA  109.54983  108.47821</span></span>
-<span><span class="co">#&gt; 2023 Q4         NA  112.12828  114.17332</span></span>
-<span><span class="co">#&gt; 2024 Q1         NA  110.67064  115.54046</span></span>
-<span><span class="co">#&gt; 2024 Q2         NA  124.46391  122.78852</span></span>
+<span><span class="co">#&gt;         2022-12-31 2023-01-31 2023-02-28</span></span>
+<span><span class="co">#&gt; 2022 Q1        0.7        0.7        0.7</span></span>
+<span><span class="co">#&gt; 2022 Q2        0.3        0.2        0.3</span></span>
+<span><span class="co">#&gt; 2022 Q3        0.7        0.7        0.7</span></span>
+<span><span class="co">#&gt; 2022 Q4         NA        0.4        0.3</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $horizontal_view</span></span>
-<span><span class="co">#&gt;            2022-07-01 2022-10-01 2023-01-01 2023-04-01 2023-07-01 2023-10-01</span></span>
-<span><span class="co">#&gt; 2020-12-16         NA         NA         NA         NA         NA         NA</span></span>
-<span><span class="co">#&gt; 2024-08-17   90.42408   93.67346   88.92507   104.2914   109.5498   112.1283</span></span>
-<span><span class="co">#&gt; 2024-09-05   92.16703   89.14218   92.19060   104.2721   108.4782   114.1733</span></span>
-<span><span class="co">#&gt;            2024-01-01 2024-04-01</span></span>
-<span><span class="co">#&gt; 2020-12-16         NA         NA</span></span>
-<span><span class="co">#&gt; 2024-08-17   110.6706   124.4639</span></span>
-<span><span class="co">#&gt; 2024-09-05   115.5405   122.7885</span></span>
+<span><span class="co">#&gt;            2022-01-01 2022-04-01 2022-07-01 2022-10-01</span></span>
+<span><span class="co">#&gt; 2022-12-31        0.7        0.3        0.7         NA</span></span>
+<span><span class="co">#&gt; 2023-01-31        0.7        0.2        0.7        0.4</span></span>
+<span><span class="co">#&gt; 2023-02-28        0.7        0.3        0.7        0.3</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $diagonal_view</span></span>
 <span><span class="co">#&gt;         Release[1] Release[2] Release[3]</span></span>
-<span><span class="co">#&gt; 2022 Q3   4.872676   9.891589   8.153752</span></span>
-<span><span class="co">#&gt; 2022 Q4  13.087054   9.041936   9.823195</span></span>
-<span><span class="co">#&gt; 2023 Q1   8.803134   7.302473   7.375808</span></span>
-<span><span class="co">#&gt; 2023 Q2   8.035249   7.440879   7.861251</span></span>
-<span><span class="co">#&gt; 2023 Q3  12.488244  10.464795  10.988075</span></span>
-<span><span class="co">#&gt; 2023 Q4  16.473656  15.305809  15.047642</span></span>
-<span><span class="co">#&gt; 2024 Q1   8.802682  11.524953  11.553148</span></span>
-<span><span class="co">#&gt; 2024 Q2   6.329603   6.526429   7.888746</span></span>
+<span><span class="co">#&gt; 2022 Q1        0.8        0.8        0.7</span></span>
+<span><span class="co">#&gt; 2022 Q2        0.2        0.1        0.1</span></span>
+<span><span class="co">#&gt; 2022 Q3        0.5        0.5        0.7</span></span>
+<span><span class="co">#&gt; 2022 Q4        0.4        0.3         NA</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">vintages</span><span class="op">)</span> <span class="co"># metadata about vintages</span></span>
-<span><span class="co">#&gt; Number of releases:  10</span></span>
+<span><span class="co">#&gt; Number of releases:  8</span></span>
 <span><span class="co">#&gt; Covered period:</span></span>
-<span><span class="co">#&gt;      From:  2012 1</span></span>
-<span><span class="co">#&gt;      To:  2024 2</span></span>
+<span><span class="co">#&gt;      From:  2022 1</span></span>
+<span><span class="co">#&gt;      To:  2022 4</span></span>
 <span><span class="co">#&gt; Frequency:  4</span></span></code></pre></div>
 <p>possibly inspect the revisions and perform the revision analysis:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">revisions</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_revisions.html">get_revisions</a></span><span class="op">(</span><span class="va">vintages</span>, gap <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># plot(revisions)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">revisions</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># print(revisions) # extract of the revisions according to the different views</span></span>
-<span><span class="co"># summary(revisions) # metadata about revisions</span></span></code></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">revisions</span><span class="op">)</span> <span class="co"># extract of the revisions according to the different views</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">revisions</span><span class="op">)</span> <span class="co"># metadata about revisions</span></span></code></pre></div>
 <p>Finally to create the report and get a summary of the results, you
 can use the function <code class="sourceCode r">revision_analysis</code></p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">rslt</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/revision_analysis.html">revision_analysis</a></span><span class="op">(</span><span class="va">vintages</span>, gap <span class="op">=</span> <span class="fl">1</span>, view <span class="op">=</span> <span class="st">"diagonal"</span>, n.releases <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Warning: Slope and drift could not be performed</span></span>
+<span><span class="co">#&gt; Warning: efficiencyModel1 could not be performed</span></span>
+<span><span class="co">#&gt; Warning: efficiencyModel2 could not be performed</span></span>
+<span><span class="co">#&gt; Warning: orthogonallyModel1 could not be performed</span></span>
+<span><span class="co">#&gt; Warning: orthogonallyModel2 could not be performed</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">rslt</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [[1]]</span></span>
@@ -464,59 +461,59 @@ can use the function <code class="sourceCode r">revision_analysis</code></p>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $descriptive_statistics</span></span>
 <span><span class="co">#&gt;                           [Release[2]]-[Release[1]] [Release[3]]-[Release[2]]</span></span>
-<span><span class="co">#&gt; N                                            50.000                    36.000</span></span>
-<span><span class="co">#&gt; mean revision                                -0.071                     0.073</span></span>
-<span><span class="co">#&gt; st.dev.                                       2.712                     1.176</span></span>
-<span><span class="co">#&gt; min                                          -4.531                    -2.107</span></span>
-<span><span class="co">#&gt; q.10                                         -2.932                    -1.435</span></span>
-<span><span class="co">#&gt; median                                       -0.161                     0.067</span></span>
-<span><span class="co">#&gt; q.90                                          2.817                     1.522</span></span>
-<span><span class="co">#&gt; max                                           9.020                     2.720</span></span>
-<span><span class="co">#&gt; % positive                                    0.460                     0.556</span></span>
-<span><span class="co">#&gt; % zero                                        0.000                     0.000</span></span>
-<span><span class="co">#&gt; % negative                                    0.540                     0.444</span></span>
-<span><span class="co">#&gt; mean absolute revision                        2.184                     0.932</span></span>
-<span><span class="co">#&gt; root mean square revision                     2.686                     1.162</span></span>
+<span><span class="co">#&gt; N                                             4.000                     3.000</span></span>
+<span><span class="co">#&gt; mean revision                                -0.050                     0.033</span></span>
+<span><span class="co">#&gt; st.dev.                                       0.058                     0.153</span></span>
+<span><span class="co">#&gt; min                                          -0.100                    -0.100</span></span>
+<span><span class="co">#&gt; q.10                                         -0.100                    -0.080</span></span>
+<span><span class="co">#&gt; median                                       -0.050                     0.000</span></span>
+<span><span class="co">#&gt; q.90                                          0.000                     0.160</span></span>
+<span><span class="co">#&gt; max                                           0.000                     0.200</span></span>
+<span><span class="co">#&gt; % positive                                    0.000                     0.333</span></span>
+<span><span class="co">#&gt; % zero                                        0.500                     0.333</span></span>
+<span><span class="co">#&gt; % negative                                    0.500                     0.333</span></span>
+<span><span class="co">#&gt; mean absolute revision                        0.050                     0.100</span></span>
+<span><span class="co">#&gt; root mean square revision                     0.071                     0.129</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $parametric_analysis</span></span>
 <span><span class="co">#&gt;                                            Transf. [Release[2]]-[Release[1]]</span></span>
-<span><span class="co">#&gt; Relevancy - Theil U2                          None              Good (0.557)</span></span>
-<span><span class="co">#&gt; Bias1 T-test                                  None              Good (0.853)</span></span>
-<span><span class="co">#&gt; Bias2 Augmented T-test                        None              Good (0.789)</span></span>
-<span><span class="co">#&gt; Bias3 SlopeAndDrift (Ols L on P) - Mean       None              Good (0.710)</span></span>
-<span><span class="co">#&gt; Bias3 SlopeAndDrift (Ols L on P) - Reg.       None              Good (0.746)</span></span>
-<span><span class="co">#&gt; Efficiency1 (Ols R on P) - Mean            Delta 1              Good (0.062)</span></span>
-<span><span class="co">#&gt; Efficiency1 (Ols R on P) - Reg.            Delta 1            Severe (0.000)</span></span>
+<span><span class="co">#&gt; Relevancy - Theil U2                          None              Good (0.057)</span></span>
+<span><span class="co">#&gt; Bias1 T-test                                  None              Good (0.182)</span></span>
+<span><span class="co">#&gt; Bias2 Augmented T-test                        None            Severe (0.000)</span></span>
+<span><span class="co">#&gt; Bias3 SlopeAndDrift (Ols L on P) - Mean       None                      &lt;NA&gt;</span></span>
+<span><span class="co">#&gt; Bias3 SlopeAndDrift (Ols L on P) - Reg.       None                      &lt;NA&gt;</span></span>
+<span><span class="co">#&gt; Efficiency1 (Ols R on P) - Mean               None                      &lt;NA&gt;</span></span>
+<span><span class="co">#&gt; Efficiency1 (Ols R on P) - Reg.               None                      &lt;NA&gt;</span></span>
 <span><span class="co">#&gt; Efficiency2 (Ols Rv on Rv_1) - Mean           None                          </span></span>
 <span><span class="co">#&gt; Efficiency2 (Ols Rv on Rv_1) - Reg.           None                          </span></span>
 <span><span class="co">#&gt; Orthogonality1 (Ols Rv on Rv_(1:p)) - Mean    None                          </span></span>
 <span><span class="co">#&gt; Orthogonality1 (Ols Rv on Rv_(1:p)) - Reg.    None                          </span></span>
 <span><span class="co">#&gt; Orthogonality2 (Ols Rv on Rv_k.) - Mean       None                          </span></span>
 <span><span class="co">#&gt; Orthogonality2 (Ols Rv on Rv_k) - Reg.        None                          </span></span>
-<span><span class="co">#&gt; Orthogonality3 AutoCorrelation (Ljung-Box)    None         Uncertain (0.030)</span></span>
+<span><span class="co">#&gt; Orthogonality3 AutoCorrelation (Ljung-Box)    None                      &lt;NA&gt;</span></span>
 <span><span class="co">#&gt; Orthogonality4 Seasonality (Ljung-Box)     Delta 1              Good (1.000)</span></span>
-<span><span class="co">#&gt; Orthogonality4 Seasonality (Friedman)      Delta 1              Good (0.475)</span></span>
-<span><span class="co">#&gt; SignalVsNoise1 - Noise (Ols R on P)        Delta 1            Severe (0.000)</span></span>
-<span><span class="co">#&gt; SignalVsNoise2 - Signal (Ols R on L)       Delta 1         Uncertain (0.790)</span></span>
+<span><span class="co">#&gt; Orthogonality4 Seasonality (Friedman)      Delta 1                      &lt;NA&gt;</span></span>
+<span><span class="co">#&gt; SignalVsNoise1 - Noise (Ols R on P)           None              Good (0.277)</span></span>
+<span><span class="co">#&gt; SignalVsNoise2 - Signal (Ols R on L)          None         Uncertain (0.248)</span></span>
 <span><span class="co">#&gt;                                            [Release[3]]-[Release[2]]</span></span>
-<span><span class="co">#&gt; Relevancy - Theil U2                                    Good (0.278)</span></span>
-<span><span class="co">#&gt; Bias1 T-test                                            Good (0.711)</span></span>
-<span><span class="co">#&gt; Bias2 Augmented T-test                                  Good (0.710)</span></span>
-<span><span class="co">#&gt; Bias3 SlopeAndDrift (Ols L on P) - Mean                 Good (0.549)</span></span>
-<span><span class="co">#&gt; Bias3 SlopeAndDrift (Ols L on P) - Reg.                 Good (0.386)</span></span>
-<span><span class="co">#&gt; Efficiency1 (Ols R on P) - Mean                         Good (0.728)</span></span>
-<span><span class="co">#&gt; Efficiency1 (Ols R on P) - Reg.                         Good (0.448)</span></span>
-<span><span class="co">#&gt; Efficiency2 (Ols Rv on Rv_1) - Mean                     Good (0.774)</span></span>
-<span><span class="co">#&gt; Efficiency2 (Ols Rv on Rv_1) - Reg.                     Good (0.100)</span></span>
-<span><span class="co">#&gt; Orthogonality1 (Ols Rv on Rv_(1:p)) - Mean              Good (0.774)</span></span>
-<span><span class="co">#&gt; Orthogonality1 (Ols Rv on Rv_(1:p)) - Reg.              Good (0.900)</span></span>
-<span><span class="co">#&gt; Orthogonality2 (Ols Rv on Rv_k.) - Mean                 Good (0.774)</span></span>
-<span><span class="co">#&gt; Orthogonality2 (Ols Rv on Rv_k) - Reg.                  Good (0.100)</span></span>
-<span><span class="co">#&gt; Orthogonality3 AutoCorrelation (Ljung-Box)              Good (0.772)</span></span>
+<span><span class="co">#&gt; Relevancy - Theil U2                                    Good (0.330)</span></span>
+<span><span class="co">#&gt; Bias1 T-test                                            Good (0.742)</span></span>
+<span><span class="co">#&gt; Bias2 Augmented T-test                                  Good (0.723)</span></span>
+<span><span class="co">#&gt; Bias3 SlopeAndDrift (Ols L on P) - Mean                         &lt;NA&gt;</span></span>
+<span><span class="co">#&gt; Bias3 SlopeAndDrift (Ols L on P) - Reg.                         &lt;NA&gt;</span></span>
+<span><span class="co">#&gt; Efficiency1 (Ols R on P) - Mean                                 &lt;NA&gt;</span></span>
+<span><span class="co">#&gt; Efficiency1 (Ols R on P) - Reg.                                 &lt;NA&gt;</span></span>
+<span><span class="co">#&gt; Efficiency2 (Ols Rv on Rv_1) - Mean                             &lt;NA&gt;</span></span>
+<span><span class="co">#&gt; Efficiency2 (Ols Rv on Rv_1) - Reg.                             &lt;NA&gt;</span></span>
+<span><span class="co">#&gt; Orthogonality1 (Ols Rv on Rv_(1:p)) - Mean                      &lt;NA&gt;</span></span>
+<span><span class="co">#&gt; Orthogonality1 (Ols Rv on Rv_(1:p)) - Reg.                      &lt;NA&gt;</span></span>
+<span><span class="co">#&gt; Orthogonality2 (Ols Rv on Rv_k.) - Mean                         &lt;NA&gt;</span></span>
+<span><span class="co">#&gt; Orthogonality2 (Ols Rv on Rv_k) - Reg.                          &lt;NA&gt;</span></span>
+<span><span class="co">#&gt; Orthogonality3 AutoCorrelation (Ljung-Box)                      &lt;NA&gt;</span></span>
 <span><span class="co">#&gt; Orthogonality4 Seasonality (Ljung-Box)                  Good (1.000)</span></span>
-<span><span class="co">#&gt; Orthogonality4 Seasonality (Friedman)                   Good (0.226)</span></span>
-<span><span class="co">#&gt; SignalVsNoise1 - Noise (Ols R on P)                     Good (0.547)</span></span>
-<span><span class="co">#&gt; SignalVsNoise2 - Signal (Ols R on L)               Uncertain (0.071)</span></span></code></pre></div>
+<span><span class="co">#&gt; Orthogonality4 Seasonality (Friedman)                           &lt;NA&gt;</span></span>
+<span><span class="co">#&gt; SignalVsNoise1 - Noise (Ols R on P)                     Good (0.854)</span></span>
+<span><span class="co">#&gt; SignalVsNoise2 - Signal (Ols R on L)               Uncertain (0.907)</span></span></code></pre></div>
 <p>To export the report in pdf or html format, you can use the function
 <code class="sourceCode r">render_report</code></p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
@@ -908,7 +905,7 @@ To evaluate whether a mean or regression bias is present, we employ a
 conventional t-test on the parameters with the null hypothesis
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>β</mi><mn>0</mn></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\beta_0 = 0</annotation></semantics></math>
 and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover><mi>β</mi><mo accent="true">̂</mo></mover><mn>1</mn></msub><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\hat{\beta}_1 = 1</annotation></semantics></math>.</p>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>β</mi><mn>1</mn></msub><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\beta_1 = 1</annotation></semantics></math>.</p>
 <p>Recall that OLS regressions always come along with rather strict
 assumptions. Users should check the diagnostics and draw the necessary
 conclusions from them.</p>
@@ -1172,8 +1169,8 @@ OECD.</li>
 : Regression Based Parametric Analysis.” DI/06769. DG ESTAT.</li>
 <li>Pitton, Laurent, and David Ares. 2013b. “Tool for Revision Analysis
 : VAR Based Models and Final Equation.” DI/06769. DG ESTAT.</li>
-<li>Smyk, Anna, Alain Quartier-la-Tente, Tanguy Barthelemy, and Karsten
-Webel. 2023. “JDemetra+ Documentation.” INSEE; <a href="https://jdemetra-new-documentation.netlify.app/" class="external-link uri">https://jdemetra-new-documentation.netlify.app/</a>.</li>
+<li>Smyk, Anna, Tanguy Barthelemy, Karsten Webel and al. 2024.
+“JDemetra+ Documentation.” INSEE; <a href="https://jdemetra-new-documentation.netlify.app/" class="external-link uri">https://jdemetra-new-documentation.netlify.app/</a>.</li>
 </ul>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
