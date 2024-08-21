@@ -9,7 +9,7 @@ among the different component series."></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">rjd3revisions</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -87,17 +87,17 @@ rather as data not (yet) available (the default).</p></dd>
 <span class="r-in"><span><span class="co">## Create vintage and test</span></span></span>
 <span class="r-in"><span><span class="va">vintages</span> <span class="op">&lt;-</span> <span class="fu"><a href="create_vintages.html">create_vintages</a></span><span class="op">(</span><span class="va">df_long</span>, periodicity <span class="op">=</span> <span class="fl">4L</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">vecm</span><span class="op">(</span><span class="va">vintages</span><span class="op">$</span><span class="va">diagonal_view</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                            trace(2)  trace(1)    max(2)    max(1)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[1]]_[Release[2]] 0.5495506  7.847112 0.5495506  7.297561</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[1]]_[Release[3]] 0.2749004 10.819149 0.2749004 10.544248</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[1]]_[Release[4]] 0.4601555  8.152137 0.4601555  7.691982</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[1]]_[Release[5]] 0.4302382  6.455878 0.4302382  6.025640</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[2]]_[Release[3]] 0.7314050 11.660263 0.7314050 10.928858</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[2]]_[Release[4]] 0.4741885  5.882009 0.4741885  5.407820</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[2]]_[Release[5]] 0.2724369  6.970696 0.2724369  6.698259</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[3]]_[Release[4]] 0.1744513 15.683007 0.1744513 15.508555</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[3]]_[Release[5]] 0.4717203  6.103057 0.4717203  5.631337</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[4]]_[Release[5]] 0.4944790 17.629726 0.4944790 17.135247</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                              trace(2)  trace(1)      max(2)    max(1)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[1]]_[Release[2]] 0.051640142  6.520660 0.051640142  6.469020</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[1]]_[Release[3]] 0.191541211 10.062803 0.191541211  9.871262</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[1]]_[Release[4]] 0.001360341  7.723256 0.001360341  7.721896</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[1]]_[Release[5]] 3.922412214 10.559557 3.922412214  6.637144</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[2]]_[Release[3]] 0.016473301 12.520851 0.016473301 12.504377</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[2]]_[Release[4]] 0.161058487  5.792907 0.161058487  5.631848</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[2]]_[Release[5]] 3.185079099 15.551074 3.185079099 12.365995</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[3]]_[Release[4]] 0.008745229 13.460399 0.008745229 13.451654</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[3]]_[Release[5]] 3.598972287  9.343817 3.598972287  5.744844</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[4]]_[Release[5]] 3.897690661 14.835031 3.897690661 10.937340</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
