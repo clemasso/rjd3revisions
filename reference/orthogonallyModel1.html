@@ -79,35 +79,35 @@ rather as data not (yet) available (the default).</p></dd>
 <span class="r-in"><span><span class="co">## Create vintage and test</span></span></span>
 <span class="r-in"><span><span class="va">vintages</span> <span class="op">&lt;-</span> <span class="fu"><a href="create_vintages.html">create_vintages</a></span><span class="op">(</span><span class="va">df_long</span>, periodicity <span class="op">=</span> <span class="fl">4L</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">revisions</span> <span class="op">&lt;-</span> <span class="fu"><a href="get_revisions.html">get_revisions</a></span><span class="op">(</span><span class="va">vintages</span>, gap <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu">orthogonallyModel1</span><span class="op">(</span><span class="va">revisions</span><span class="op">$</span><span class="va">diagonal_view</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                             N         R2         F intercept.estimate</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[3]]-[Release[2]]   6 0.03016567 0.1244157        -0.04145696</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[4]]-[Release[3]] NaN        NaN       NaN                NaN</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[5]]-[Release[4]] NaN        NaN       NaN                NaN</span>
+<span class="r-in"><span><span class="fu">orthogonallyModel1</span><span class="op">(</span><span class="va">revisions</span><span class="op">[[</span><span class="st">"diagonal_view"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                            N         R2        F intercept.estimate</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[3]]-[Release[2]] 29 0.24591617 8.805038         0.08575764</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[4]]-[Release[3]] 27 0.07874309 2.136839         0.09901214</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[5]]-[Release[4]] 23 0.25484069 7.181893        -0.03872800</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                           intercept.stderr intercept.pvalue x(1).estimate</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[3]]-[Release[2]]         1.201465        0.9741274    -0.2289974</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[4]]-[Release[3]]              NaN              NaN           NaN</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[5]]-[Release[4]]              NaN              NaN           NaN</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                           x(1).stderr x(1).pvalue   skewness  kurtosis</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[3]]-[Release[2]]   0.6492215   0.7420956 -0.4712289 -1.115913</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[4]]-[Release[3]]         NaN         NaN        NaN       NaN</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[5]]-[Release[4]]         NaN         NaN        NaN       NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[3]]-[Release[2]]       0.19553399        0.6644541    -0.2713391</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[4]]-[Release[3]]       0.11134016        0.3823321    -0.1360981</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[5]]-[Release[4]]       0.04141999        0.3604126    -0.1792283</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                           x(1).stderr x(1).pvalue    skewness   kurtosis</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[3]]-[Release[2]]  0.09144222 0.006223876 -0.44972705 -0.3252401</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[4]]-[Release[3]]  0.09310352 0.156255186  0.04720293 -0.1288304</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[5]]-[Release[4]]  0.06687860 0.014020100 -0.01006085 -1.1309021</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                           JarqueBera.value JarqueBera.pvalue BreuschPagan.R2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[3]]-[Release[2]]        0.4444766         0.8007245        0.176979</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[4]]-[Release[3]]              NaN               NaN             NaN</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[5]]-[Release[4]]              NaN               NaN             NaN</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                           BreuschPagan.value BreuschPagan.pvalue  White.R2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[3]]-[Release[2]]          0.8601432           0.4061935 0.4753361</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[4]]-[Release[3]]                NaN                 NaN       NaN</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[5]]-[Release[4]]                NaN                 NaN       NaN</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                           White.value White.pvalue     arch.R2 arch.value</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[3]]-[Release[2]]    2.852017    0.2402661 0.005718509 0.02859254</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[4]]-[Release[3]]         NaN          NaN         NaN        NaN</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[5]]-[Release[4]]         NaN          NaN         NaN        NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[3]]-[Release[2]]       1.06726527         0.5864707    0.1101192072</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[4]]-[Release[3]]       0.02763554         0.9862773    0.0250155395</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[5]]-[Release[4]]       1.17273248         0.5563452    0.0001836754</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                           BreuschPagan.value BreuschPagan.pvalue   White.R2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[3]]-[Release[2]]        3.341142564          0.07863879 0.14560162</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[4]]-[Release[3]]        0.641434314          0.43073804 0.02512424</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[5]]-[Release[4]]        0.003857892          0.95106108 0.05599981</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                           White.value White.pvalue      arch.R2   arch.value</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[3]]-[Release[2]]   4.2224470    0.1210897 1.445946e-05 0.0004048648</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[4]]-[Release[3]]   0.6783545    0.7123562 2.565057e-02 0.6669147320</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[5]]-[Release[4]]   1.2879956    0.5251886 7.559007e-02 1.6629815149</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                           arch.pvalue</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[3]]-[Release[2]]   0.8657233</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[4]]-[Release[3]]         NaN</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[5]]-[Release[4]]         NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[3]]-[Release[2]]   0.9839466</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[4]]-[Release[3]]   0.4141293</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [Release[5]]-[Release[4]]   0.1972012</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
